@@ -82,7 +82,7 @@ Mostly taken from Tim Berners-Lee's article about [Metadata Architecture](https:
 * Developed in context of European Plate Observing System ([EPOS](http://www.epos-ip.org/)) project
 * [UML diagram](https://github.com/epos-eu/EPOS-DCAT-AP/blob/master/docs/EPOS-DCAT-AP_UML_schema.jpg) shows added classes and links around original DCAT-AP
     - WARNING: The diagram is not up to date and is missing some properties!
-* New classes are used to describe:
+* __New classes__ are used to describe:
     - Publication (abstract, issued, title, issn, ...)
     - Organisation (isPartOf, associatedProjects, scientific/legal/financial contact)
     - Person (language, affiliation, qualification)
@@ -92,5 +92,5 @@ Mostly taken from Tim Berners-Lee's article about [Metadata Architecture](https:
     - Equipment (description, type, manufacturer, dynamic range, ...)
     - Facility (theme, type, description, foaf:page, ...)
     - Dataset (character encoding, subject, type, domain, subdomain, ...)
-* Mandatory properties describe the minimum set of information needed by the Integrated Core Service (ICS) to automatically categorize, query and expose a dataset/service.
-* The required information classes with mandatory/optional properties for EPOS TCS-ICS integration are listed and described in an Excel file: [EPOS_DCAT-AP_Vocabulary_and_Specification.xlsx](https://github.com/epos-eu/EPOS-DCAT-AP/blob/master/docs/EPOS_DCAT-AP_Vocabulary_and_Specification.xlsx)
+* __Mandatory properties__ describe the minimum set of information needed by the Integrated Core Service (__ICS__) to automatically categorize, query and expose a dataset/service.
+* The required information classes with mandatory/optional properties for __EPOS TCS-ICS integration__ are listed and described in an Excel file: [EPOS_DCAT-AP_Vocabulary_and_Specification.xlsx](https://github.com/epos-eu/EPOS-DCAT-AP/blob/master/docs/EPOS_DCAT-AP_Vocabulary_and_Specification.xlsx)
