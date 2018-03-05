@@ -1,0 +1,4 @@
+# various intermediate files or copied from other origin
+*.docx
+*.xlsx
+*/scratch.txt
