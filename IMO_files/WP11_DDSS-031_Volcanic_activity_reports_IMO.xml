@@ -81,13 +81,14 @@
     </eposap:Organisation>
     <!-- EPOS WebService -->
     <eposap:WebService>
-        <dct:title>Aviation Colour Codes for volcanoes</dct:title>
-        <dct:description>This web API endpoint will return JSON arrays containing Aviation Colour Code information for Icelandic volcanoes as provided by the IMO together with some metadata (volcano coordinates, date if issue, activity summary text, information source). The meaning and definition of Aviation Colour Codes is described on http://www.wovo.org/aviation-colour-codes.html, it is an alert system of four colour codes which aids air traffic in avoiding volcanic ash clouds. A more comprehensive set of information regarding the color codes can be retrieved in the form of VONA from a different web service (http://api.vedur.is/volcanoes/products/vona).</dct:description>
-        <dct:issued>2018-03-15T12:00:00</dct:issued><!-- When WS was started -->
-        <dct:modified>2018-03-15T12:00:00</dct:modified>
+        <dct:title>Weekly Volcanic Activity Report Metadata</dct:title>
+        <dct:description>This web API endpoint will return metadata on weekly volcanic activity report documents produced by the IMO about Icelandic volcanoes in JSON arrays. These metadata contain DCAT-typical information (file type, size, contacts, temporal validity, file download URL, language, etc.) and a geoJSON structure under the spatial parameter to indicate which volcanoes are included in the report. The file download URL is given as value for parameter URI.
+        The weekly volcano activity report is a periodic status update about the geophysical activity at one or multiple volcanoes based on qualitative assessment of various observational data of the types remote-sensing, seismic, geodetic, geochemical. The reports summarize any such activity and changes thereof, and may indicate possible unrest or ground effects as opposed to VONA reports which are only aimed at air traffic management.</dct:description>
+        <dct:issued>2018-05-31T12:00:00</dct:issued>
+        <dct:modified>2018-05-31T12:00:00</dct:modified>
         <dct:license>license_link...</dct:license>
         <foaf:page>
-            <foaf:primaryTopic>http://api.vedur.is/volcanoes/products/aviation_colour_codes</foaf:primaryTopic>
+            <foaf:primaryTopic>http://api.vedur.is/volcanoes/products/reports</foaf:primaryTopic>
         </foaf:page>
         <dct:format>
             <dct:MediaTypeOrExtent>application/json</dct:MediaTypeOrExtent>
@@ -96,11 +97,11 @@
             <dct:RightsStatement>PUBLIC</dct:RightsStatement>
         </dct:rights>
         <dct:conformsTo>http://www.opengis.net/def/crs/EPSG/0/4326</dct:conformsTo>
-        <dct:identifier>http://api.vedur.is/volcanoes/products/aviation_colour_codes</dct:identifier>
-        <dct:created>2018-03-15T12:00:00</dct:created>
-        <eposap:domain>Volcanology</eposap:domain>
-        <eposap:subDomain>Volcano Hazard</eposap:subDomain>
-        <dcat:keyword>volcano, aviation, ash cloud, color code, ICAO, IMO, Iceland, ministry, natural resources, protection, hazard, air traffic</dcat:keyword>
+        <dct:identifier>http://api.vedur.is/volcanoes/products/reports</dct:identifier>
+        <dct:created>2018-05-31T12:00:00</dct:created>
+        <eposap:domain>Geohazards</eposap:domain>
+        <eposap:subDomain>Volcanic hazard product</eposap:subDomain>
+        <dcat:keyword>volcano, activity report, weekly, volcano notification, IMO, Iceland</dcat:keyword>
         <eposap:operation>TBD</eposap:operation>
         <dct:hasVersion>0.1</dct:hasVersion>
         <eposap:parameter>
@@ -110,13 +111,76 @@
         </eposap:parameter>
         <eposap:parameter>
             <http:paramName>start_time</http:paramName>
-            <rdf:label>earliest color code issuance time to request, ISO 8601 format</rdf:label>
+            <rdf:label>earliest report publication date to request, ISO 8601 format</rdf:label>
+            <dct:type>string</dct:type>
+            <schema:minValue>2014-01-01T00:00:00</schema:minValue>
+        </eposap:parameter>
+        <eposap:parameter>
+            <http:paramName>end_time</http:paramName>
+            <rdf:label>latest report publication date to request, ISO 8601 format</rdf:label>
+            <dct:type>string</dct:type>
+            <schema:minValue>2014-01-01T00:00:00</schema:minValue>
+        </eposap:parameter>
+        <schema:documentation></schema:documentation>
+        <dcat:contactPoint>https://orcid.org/0000-0001-5750-0872</dcat:contactPoint>
+        <eposap:publisher>PIC:997168343</eposap:publisher>
+        <dct:spatial>
+            <dct:Location>
+                <locn:geometry>
+                    POLYGON(-25 66.7,-13 66.7,-13 63.1,-25 63.1, -25 66.7)
+                </locn:geometry>
+            </dct:Location>
+        </dct:spatial>
+        <adms:representationTechnique></adms:representationTechnique>
+        <dct:temporal>
+            <dct:PeriodOfTime>
+                <schema:startDate>2014-01-01T00:00:00</schema:startDate>
+                <schema:endDate>2018-12-31T12:00:00</schema:endDate>
+            </dct:PeriodOfTime>
+        </dct:temporal>
+        <eposap:DDSS-ID>WP11-DDSS-031</eposap:DDSS-ID>
+            <eposap:actions>download</eposap:actions>
+    </eposap:WebService>
+    <!-- EPOS WebService -->
+    <eposap:WebService>
+        <dct:title>Volcano Observatory Notice for Aviation Metadata</dct:title>
+        <dct:description>This web API endpoint will return metadata on VONA (Volcano Observatory Notice for Aviation) documents produced by the IMO about Icelandic volcanoes in JSON arrays. These metadata contain DCAT-typical information (file type, size, contacts, temporal validity, file download URL, language, etc.) and a geoJSON structure under the spatial parameter to indicate which volcano's status is described in the report. The file download URL is given as value for parameter URI.
+        Volcano Observatory Notices for Aviation (VONA) are succinct, plain-English messages aimed at dispatchers, pilots, and air-traffic controllers to inform them of volcanic unrest and eruptive activity that could produce ash-cloud hazards.
+        </dct:description>
+        <dct:issued>2018-05-31T12:00:00</dct:issued>
+        <dct:modified>2018-05-31T12:00:00</dct:modified>
+        <dct:license>license_link...</dct:license>
+        <foaf:page>
+            <foaf:primaryTopic>http://api.vedur.is/volcanoes/products/vona</foaf:primaryTopic>
+        </foaf:page>
+        <dct:format>
+            <dct:MediaTypeOrExtent>application/json</dct:MediaTypeOrExtent>
+        </dct:format>
+        <dct:rights>
+            <dct:RightsStatement>PUBLIC</dct:RightsStatement>
+        </dct:rights>
+        <dct:conformsTo>http://www.opengis.net/def/crs/EPSG/0/4326</dct:conformsTo>
+        <dct:identifier>http://api.vedur.is/volcanoes/products/vona</dct:identifier>
+        <dct:created>2018-05-31T12:00:00</dct:created>
+        <eposap:domain>Geohazards</eposap:domain>
+        <eposap:subDomain>Volcanic hazard product</eposap:subDomain>
+        <dcat:keyword>volcano, VONA, volcano notification, aviation, ash cloud, color code, ICAO, IMO, Iceland, ministry, natural resources, protection, hazard, air traffic</dcat:keyword>
+        <eposap:operation>TBD</eposap:operation>
+        <dct:hasVersion>0.1</dct:hasVersion>
+        <eposap:parameter>
+            <http:paramName>volcano</http:paramName>
+            <rdf:label>name of requested volcano, or its volcano number (6-digit ID from GVP of Smithsonian Institution)</rdf:label>
+            <dct:type>string</dct:type>
+        </eposap:parameter>
+        <eposap:parameter>
+            <http:paramName>start_time</http:paramName>
+            <rdf:label>earliest VONA publication date to request, ISO 8601 format</rdf:label>
             <dct:type>string</dct:type>
             <schema:minValue>2015-12-31T12:00:00</schema:minValue>
         </eposap:parameter>
         <eposap:parameter>
             <http:paramName>end_time</http:paramName>
-            <rdf:label>latest color code issuance time to request, ISO 8601 format</rdf:label>
+            <rdf:label>latest VONA publication date to request, ISO 8601 format</rdf:label>
             <dct:type>string</dct:type>
             <schema:minValue>2015-12-31T12:00:00</schema:minValue>
         </eposap:parameter>
@@ -137,7 +201,7 @@
                 <schema:endDate>2018-12-31T12:00:00</schema:endDate>
             </dct:PeriodOfTime>
         </dct:temporal>
-        <eposap:DDSS-ID>WP11-DDSS-032</eposap:DDSS-ID>
+        <eposap:DDSS-ID>WP11-DDSS-031</eposap:DDSS-ID>
             <eposap:actions>download</eposap:actions>
     </eposap:WebService>
 </eposap:Epos>
